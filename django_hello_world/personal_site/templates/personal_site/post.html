@@ -1,0 +1,12 @@
+{% if post %}
+<b>{{ post.title }}</b> {{ post.text }}
+{% endif %}
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'personal_site:add' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="title">
+    <input type="text" name="text">
+    <input type="submit" value="Vote">
+</form>
